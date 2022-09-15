@@ -38,20 +38,9 @@
 //	return 0;
 //}
 
-#include <stdio.h>//1009번 분산처리 문제.
+#include<stdio.h>//10718번
 int main() {
-    int tc, a, b, tm;
-    scanf("%d", &tc);
-    for (int i = 0; i < tc; i++) {
-        scanf(" %d %d", &a, &b);
-        tm = 1;
-        for (int j = 0; j < b; j++) {
-            tm = (tm * a) % 10;
-        }
-        if (tm == 0) {
-            tm += 10;
-        }
-        printf("%d\n", tm);
-    }
-    return 0;
+	printf("강한친구 대한육군\n");
+	printf("강한친구 대한육군\n");
+	return 0;
 }
