@@ -45,10 +45,31 @@
 //	return 0;
 //}
 
-#include<stdio.h>//10998번 문제 정답
+//#include<stdio.h>//10998번 문제 정답
+//int main() {
+//	int a, b;
+//	scanf("%d %d", &a, &b);
+//	printf("%d", a * b);
+//	return 0;
+//}
+
+//#include <stdio.h>//10869번
+//int main() {
+//	int a, b;
+//	scanf("%d %d", &a, &b);
+//	printf("%d\n", a + b);
+//	printf("%d\n", a - b);
+//	printf("%d\n", a * b);
+//	printf("%d\n", a / b);
+//	printf("%d\n", a % b);
+//
+//	return 0;
+//}
+
+#include <stdio.h>//18108번
 int main() {
-	int a, b;
-	scanf("%d %d", &a, &b);
-	printf("%d", a * b);
+	int y;
+	scanf("%d", &y);
+	printf("%d", y - 543);
 	return 0;
 }
