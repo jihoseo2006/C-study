@@ -38,9 +38,17 @@
 //	return 0;
 //}
 
-#include<stdio.h>//10718번
+//#include<stdio.h>//10718번
+//int main() {
+//	printf("강한친구 대한육군\n");
+//	printf("강한친구 대한육군\n");
+//	return 0;
+//}
+
+#include<stdio.h>//10998번 문제 정답
 int main() {
-	printf("강한친구 대한육군\n");
-	printf("강한친구 대한육군\n");
+	int a, b;
+	scanf("%d %d", &a, &b);
+	printf("%d", a * b);
 	return 0;
 }
