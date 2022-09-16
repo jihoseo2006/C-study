@@ -66,10 +66,21 @@
 //	return 0;
 //}
 
-#include <stdio.h>//18108¹ø
-int main() {
-	int y;
-	scanf("%d", &y);
-	printf("%d", y - 543);
-	return 0;
-}
+//#include <stdio.h>//18108¹ø
+//int main() {
+//	int y;
+//	scanf("%d", &y);
+//	printf("%d", y - 543);
+//	return 0;
+//}
+
+//#include<stdio.h>//10430¹ø
+//int main() {
+//	int a, b, c;
+//	scanf("%d %d %d", &a, &b, &c);
+//	printf("%d\n", (a + b) % c);
+//	printf("%d\n", ((a%c) + (b%c))%c);
+//	printf("%d\n", (a * b) % c);
+//	printf("%d\n", ((a % c)* (b%c)) % c);
+//	return 0;
+//}
