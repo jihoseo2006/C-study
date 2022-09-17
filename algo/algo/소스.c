@@ -123,15 +123,34 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2753¹ø
+//#include<stdio.h>//2753¹ø
+//int main() {
+//	int y;
+//	scanf("%d", &y);
+//	if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+//		printf("1");
+//	}
+//	else {
+//		printf("0");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//14681¹ø
 int main() {
-	int y;
-	scanf("%d", &y);
-	if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+	int x, y;
+	scanf("%d\n%d", &x, &y);
+	if (x > 0 && y > 0) {
 		printf("1");
 	}
-	else {
-		printf("0");
+	if (x < 0 && y > 0) {
+		printf("2");
+	}
+	if (x < 0 && y < 0) {
+		printf("3");
+	}
+	if (x > 0 && y < 0) {
+		printf("4");
 	}
 	return 0;
 }
