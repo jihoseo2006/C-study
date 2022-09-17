@@ -202,7 +202,21 @@
 //	}
 //}
 
-#include<stdio.h>//11021¹ø
+//#include<stdio.h>//11021¹ø
+//int main() {
+//	int a[100] = { 0 }, b[100] = { 0 };
+//	int c;
+//	scanf("%d", &c);
+//	for (int i = 0; i < c; i++) {
+//		scanf("%d %d", &a[i], &b[i]);
+//	}
+//	for (int i = 0; i < c; i++) {
+//		printf("Case #%d: %d\n", i+1, a[i] + b[i]);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//11022¹ø
 int main() {
 	int a[100] = { 0 }, b[100] = { 0 };
 	int c;
@@ -211,7 +225,7 @@ int main() {
 		scanf("%d %d", &a[i], &b[i]);
 	}
 	for (int i = 0; i < c; i++) {
-		printf("Case #%d: %d\n", i+1, a[i] + b[i]);
+		printf("Case #%d: %d + %d = %d\n", i + 1, a[i], b[i], a[i] + b[i]);
 	}
 	return 0;
 }
