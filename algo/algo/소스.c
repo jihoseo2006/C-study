@@ -101,24 +101,37 @@
 //	return 0;
 //}
 
-#include<stdio.h>//9498¹ø
+//#include<stdio.h>//9498¹ø
+//int main() {
+//	int a;
+//	scanf("%d", &a);
+//	if (a >= 90) {
+//		printf("A");
+//	}
+//	else if (a >= 80) {
+//		printf("B");
+//	}
+//	else if (a >= 70) {
+//		printf("C");
+//	}
+//	else if (a >= 60) {
+//		printf("D");
+//	}
+//	else{
+//		printf("F");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//2753¹ø
 int main() {
-	int a;
-	scanf("%d", &a);
-	if (a >= 90) {
-		printf("A");
+	int y;
+	scanf("%d", &y);
+	if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+		printf("1");
 	}
-	else if (a >= 80) {
-		printf("B");
-	}
-	else if (a >= 70) {
-		printf("C");
-	}
-	else if (a >= 60) {
-		printf("D");
-	}
-	else{
-		printf("F");
+	else {
+		printf("0");
 	}
 	return 0;
 }
