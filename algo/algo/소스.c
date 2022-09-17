@@ -84,3 +84,19 @@
 //	printf("%d\n", ((a % c)* (b%c)) % c);
 //	return 0;
 //}
+
+#include<stdio.h>//1330¹ø
+int main() {
+	int a, b;
+	scanf("%d %d", &a, &b);
+	if (a > b) {
+		printf(">");
+	}
+	if (a < b) {
+		printf("<");
+	}
+	if (a == b) {
+		printf("==");
+	}
+	return 0;
+}
