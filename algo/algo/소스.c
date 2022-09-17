@@ -136,21 +136,31 @@
 //	return 0;
 //}
 
-#include<stdio.h>//14681¹ø
+//#include<stdio.h>//14681¹ø
+//int main() {
+//	int x, y;
+//	scanf("%d\n%d", &x, &y);
+//	if (x > 0 && y > 0) {
+//		printf("1");
+//	}
+//	if (x < 0 && y > 0) {
+//		printf("2");
+//	}
+//	if (x < 0 && y < 0) {
+//		printf("3");
+//	}
+//	if (x > 0 && y < 0) {
+//		printf("4");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//2739¹ø
 int main() {
-	int x, y;
-	scanf("%d\n%d", &x, &y);
-	if (x > 0 && y > 0) {
-		printf("1");
-	}
-	if (x < 0 && y > 0) {
-		printf("2");
-	}
-	if (x < 0 && y < 0) {
-		printf("3");
-	}
-	if (x > 0 && y < 0) {
-		printf("4");
+	int n;
+	scanf("%d", &n);
+	for (int i = 1; i <= 9; i++) {
+		printf("%d * %d = %d\n", n, i, n * i);
 	}
 	return 0;
 }
