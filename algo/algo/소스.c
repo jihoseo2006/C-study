@@ -155,12 +155,25 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2739¹ø
+//#include<stdio.h>//2739¹ø
+//int main() {
+//	int n;
+//	scanf("%d", &n);
+//	for (int i = 1; i <= 9; i++) {
+//		printf("%d * %d = %d\n", n, i, n * i);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//10950
 int main() {
-	int n;
-	scanf("%d", &n);
-	for (int i = 1; i <= 9; i++) {
-		printf("%d * %d = %d\n", n, i, n * i);
+	int a[100], b[100], c;
+	scanf("%d", &c);
+	for (int i = 0; i < c; i++) {
+		scanf("%d %d", &a[i], &b[i]);
+	}
+	for (int i = 0; i < c; i++) {
+		printf("%d\n", a[i]+b[i]);
 	}
 	return 0;
 }
