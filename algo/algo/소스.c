@@ -189,15 +189,29 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15552¹ø
+//#include<stdio.h>//15552¹ø
+//int main() {
+//	int a[1000000] = { 0 }, b[1000000] = { 0 };
+//	int c;
+//	scanf("%d", &c);
+//	for (int i = 0; i < c; i++) {
+//		scanf("%d %d", &a[i], &b[i]);
+//	}
+//	for (int i = 0; i < c; i++) {
+//		printf("%d\n",a[i]+b[i]);
+//	}
+//}
+
+#include<stdio.h>//11021¹ø
 int main() {
-	int a[1000000] = { 0 }, b[1000000] = { 0 };
+	int a[100] = { 0 }, b[100] = { 0 };
 	int c;
 	scanf("%d", &c);
 	for (int i = 0; i < c; i++) {
 		scanf("%d %d", &a[i], &b[i]);
 	}
 	for (int i = 0; i < c; i++) {
-		printf("%d\n",a[i]+b[i]);
+		printf("Case #%d: %d\n", i+1, a[i] + b[i]);
 	}
+	return 0;
 }
