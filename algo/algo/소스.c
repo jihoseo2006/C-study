@@ -165,15 +165,26 @@
 //	return 0;
 //}
 
-#include<stdio.h>//10950
+//#include<stdio.h>//10950
+//int main() {
+//	int a[100], b[100], c;
+//	scanf("%d", &c);
+//	for (int i = 0; i < c; i++) {
+//		scanf("%d %d", &a[i], &b[i]);
+//	}
+//	for (int i = 0; i < c; i++) {
+//		printf("%d\n", a[i]+b[i]);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//8893¹ø
 int main() {
-	int a[100], b[100], c;
-	scanf("%d", &c);
-	for (int i = 0; i < c; i++) {
-		scanf("%d %d", &a[i], &b[i]);
+	int n, b = 0;
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++) {
+		b += i;
 	}
-	for (int i = 0; i < c; i++) {
-		printf("%d\n", a[i]+b[i]);
-	}
+	printf("%d", b);
 	return 0;
 }
