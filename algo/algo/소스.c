@@ -85,18 +85,40 @@
 //	return 0;
 //}
 
-#include<stdio.h>//1330¹ø
+//#include<stdio.h>//1330¹ø
+//int main() {
+//	int a, b;
+//	scanf("%d %d", &a, &b);
+//	if (a > b) {
+//		printf(">");
+//	}
+//	if (a < b) {
+//		printf("<");
+//	}
+//	if (a == b) {
+//		printf("==");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//9498¹ø
 int main() {
-	int a, b;
-	scanf("%d %d", &a, &b);
-	if (a > b) {
-		printf(">");
+	int a;
+	scanf("%d", &a);
+	if (a >= 90) {
+		printf("A");
 	}
-	if (a < b) {
-		printf("<");
+	else if (a >= 80) {
+		printf("B");
 	}
-	if (a == b) {
-		printf("==");
+	else if (a >= 70) {
+		printf("C");
+	}
+	else if (a >= 60) {
+		printf("D");
+	}
+	else{
+		printf("F");
 	}
 	return 0;
 }
