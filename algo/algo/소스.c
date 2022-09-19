@@ -259,3 +259,10 @@
 //	return 0;
 //}
 
+#include<stdio.h>//11654¹ø
+int main() {
+	char a;
+	scanf("%c", &a);
+	printf("%d", a);
+	return 0;
+}

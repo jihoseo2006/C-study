@@ -231,3 +231,77 @@
 //	return 0;
 //}
 
+//퀵 실버버님 정렬렬 한판해요!
+
+//#include<stdio.h>
+//#include<stdlib.h>
+//#define MAX_SIZE 10
+//#define SWAP(x,y,t) ((t)=(x), (x)=(y),(y)=(t))
+//int arr[MAX_SIZE];
+//int patition(int left, int right) {
+//
+//}
+//
+//void quick_sort(int left, int right) {
+//
+//}
+//
+//int main() {
+//	srand(time(NULL));
+//	int n = MAX_SIZE;
+//	for (int i = 0; i < n; i++)
+//		arr[i] = rand() % 100;
+//
+//	quick_sort(0, n - 1);
+//	for (int i = 0; i < n; i++)
+//		printf("%d ", arr[i]);
+//	return 0;
+//}
+
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX_SIZE 10
+#define SWAP(x,y,t) ((t)=(x), (x)=(y),(y)=(t))
+
+int arr[MAX_SIZE];
+int n;
+int partition(int arr[], int left, int right)
+{
+	int pivot, temp;
+	int low, high;
+	low = left;
+	high = right + 1;
+	pivot = arr[left];
+	do {
+		do
+			low++;
+		while (arr[low] < pivot);
+		do
+			high--;
+		while (arr[high] > pivot);
+		if (low < high) SWAP(arr[low], arr[high], temp);
+	} while (low < high);
+	SWAP(arr[left], arr[high], temp);
+	return high;
+}
+void quick_sort(int arr[], int left, int right) {
+	if (left < right) {
+		int q = partition(arr, left, right);
+		quick_sort(arr, left, q - 1);
+		quick_sort(arr, q + 1, right);
+
+	}
+}
+int main(void) {
+	int i;
+	n = MAX_SIZE;
+	srand(time(NULL));
+	for (i = 0; i < n; i++)
+		arr[i] = rand() % 100;
+
+	quick_sort(arr, 0, n - 1);
+	for (i = 0; i < n; i++)
+		printf("%d", arr[i]);
+	printf("\n");
+	return 0;
+}
