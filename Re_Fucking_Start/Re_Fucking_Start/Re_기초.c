@@ -258,7 +258,7 @@
 //	return 0;
 //}
 
-#include<stdio.h>
+#include<stdio.h>//Äü Á¤·Ä
 #include<stdlib.h>
 #define MAX_SIZE 10
 #define SWAP(x,y,t) ((t)=(x), (x)=(y),(y)=(t))
@@ -301,7 +301,7 @@ int main(void) {
 
 	quick_sort(arr, 0, n - 1);
 	for (i = 0; i < n; i++)
-		printf("%d", arr[i]);
+		printf("%d ", arr[i]);
 	printf("\n");
 	return 0;
 }
