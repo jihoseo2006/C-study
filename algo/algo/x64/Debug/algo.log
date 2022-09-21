@@ -1,2 +1,6 @@
 ﻿  소스.c
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(273,8): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(274,9): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(274,9): warning C4313: 'printf': 서식 문자열의 '%s'이(가) int' 형식의 인수 1과(와) 충돌합니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(272,1): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'char [2]'과(와) 다릅니다.
   algo.vcxproj -> C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\x64\Debug\algo.exe
