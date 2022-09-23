@@ -350,31 +350,3 @@
 //	return 0;
 //}
 
-#include<stdio.h>
-#include<stdlib.h>
-#define MAX_SIZE 10
-#define SWAP(x,y,t) ((t)=(x),(x)=(y),(y)=(t))
-
-int list[MAX_SIZE];
-int n;
-
-int patition(int left, int right) {
-	int pivot, low, high, tmp;
-
-	do {
-		do {
-
-		} while ();
-		do {
-
-		} while ();
-	} while ();
-}
-
-void quick_sort(int list[], int left, int right)
-{
-	if (left < right) {
-		int q = patition(list, left, right);
-
-	}
-}
