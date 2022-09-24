@@ -283,10 +283,26 @@
 //	return 0;
 //}
 
-#include<stdio.h>//11382¹ø
+//#include<stdio.h>//11382¹ø
+//int main() {
+//	long long a, b, c;
+//	scanf("%lld %lld %lld", &a, &b, &c);
+//	printf("%lld", a + b + c);
+//	return 0;
+//}
+
+#include<stdio.h>//2442¹ø
 int main() {
-	long long a, b, c;
-	scanf("%lld %lld %lld", &a, &b, &c);
-	printf("%lld", a + b + c);
-	return 0;
-}
+	int a;
+	scanf("%d", &a);
+	for (int i = 1; i <= a; i++) {
+		for (int k = a-i; k>0; k--) {
+			printf(" ");
+		}
+		for (int j = 1;  j <=2 * i - 1; j++) {
+			printf("*");
+		}
+
+		printf("\n");
+	}
+} 
