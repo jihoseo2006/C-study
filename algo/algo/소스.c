@@ -267,22 +267,30 @@
 //	return 0;
 //}
 
-#include <stdio.h>//10871번 정답
+//#include <stdio.h>//10871번 정답
+//int main() {
+//	int ary[10000]={0};
+//	int conary[10000]={0};
+//	int count = 0;
+//	int n1, n2;
+//	scanf("%d %d", &n1, &n2);
+//	for (int i = 0; i < n1; i++) {
+//		scanf("%d", &ary[i]);
+//		if (ary[i] < n2) {
+//			conary[count] = ary[i];
+//			count++;
+//		}
+//	}
+//	for (int j = 0; j < count; j++) {
+//		printf("%d ", conary[j]);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//2258번
 int main() {
-	int ary[10000]={0};
-	int conary[10000]={0};
-	int count = 0;
-	int n1, n2;
-	scanf("%d %d", &n1, &n2);
-	for (int i = 0; i < n1; i++) {
-		scanf("%d", &ary[i]);
-		if (ary[i] < n2) {
-			conary[count] = ary[i];
-			count++;
-		}
-	}
-	for (int j = 0; j < count; j++) {
-		printf("%d ", conary[j]);
-	}
+	int a, b;
+	scanf("%d\n%d", &a, &b);
+	printf("%d", a + b);
 	return 0;
 }
