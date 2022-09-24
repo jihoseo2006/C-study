@@ -230,18 +230,6 @@
 //	return 0;
 //}
 
-//#include<stdio.h>//2438번
-//int main() {
-//	int a;
-//	scanf("%d", &a);
-//	for (int i = 1; i <= a; i++) {
-//		for (int j = 0; j < i; j++)
-//		{
-//			printf("*");
-//		}
-//		printf("\n");
-//	}
-//}
 
 //#include<stdio.h>//2439번 미완성
 //int main() {
@@ -287,10 +275,18 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2258번
+//#include<stdio.h>//2258번
+//int main() {
+//	int a, b;
+//	scanf("%d\n%d", &a, &b);
+//	printf("%d", a + b);
+//	return 0;
+//}
+
+#include<stdio.h>//11382번
 int main() {
-	int a, b;
-	scanf("%d\n%d", &a, &b);
-	printf("%d", a + b);
+	long long a, b, c;
+	scanf("%lld %lld %lld", &a, &b, &c);
+	printf("%lld", a + b + c);
 	return 0;
 }
