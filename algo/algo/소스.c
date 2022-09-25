@@ -291,18 +291,28 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2442¹ø
+//#include<stdio.h>//2442¹ø
+//int main() {
+//	int a;
+//	scanf("%d", &a);
+//	for (int i = 1; i <= a; i++) {
+//		for (int k = a-i; k>0; k--) {
+//			printf(" ");
+//		}
+//		for (int j = 1;  j <=2 * i - 1; j++) {
+//			printf("*");
+//		}
+//
+//		printf("\n");
+//	}
+//} 
+
+#include<stdio.h>//9316¹ø
 int main() {
 	int a;
 	scanf("%d", &a);
 	for (int i = 1; i <= a; i++) {
-		for (int k = a-i; k>0; k--) {
-			printf(" ");
-		}
-		for (int j = 1;  j <=2 * i - 1; j++) {
-			printf("*");
-		}
-
-		printf("\n");
+		printf("Hello World, Judge %d!\n", i);
 	}
-} 
+	return 0;
+}
