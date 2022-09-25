@@ -230,7 +230,6 @@
 //	return 0;
 //}
 
-
 //#include<stdio.h>//2439번 미완성
 //int main() {
 //	int n;
@@ -307,12 +306,22 @@
 //	}
 //} 
 
-#include<stdio.h>//9316번
+//#include<stdio.h>//9316번
+//int main() {
+//	int a;
+//	scanf("%d", &a);
+//	for (int i = 1; i <= a; i++) {
+//		printf("Hello World, Judge %d!\n", i);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//2741번
 int main() {
 	int a;
 	scanf("%d", &a);
 	for (int i = 1; i <= a; i++) {
-		printf("Hello World, Judge %d!\n", i);
+		printf("%d\n", i);
 	}
 	return 0;
 }
