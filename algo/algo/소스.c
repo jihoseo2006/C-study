@@ -316,12 +316,39 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2741¹ø
+//#include<stdio.h>//2741¹ø
+//int main() {
+//	int a;
+//	scanf("%d", &a);
+//	for (int i = 1; i <= a; i++) {
+//		printf("%d\n", i);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//4401¹ø
 int main() {
-	int a;
-	scanf("%d", &a);
-	for (int i = 1; i <= a; i++) {
-		printf("%d\n", i);
+	int ary1[100] = { 0 };
+	int ary2[100] = { 0 };
+	int i = 0;
+	int a, b;
+	while (1)
+	{
+		scanf("%d %d", &a, &b);
+		if ((a == 0 && b == 0)) break;
+		ary1[i] = a;
+		ary2[i] = b;
+		i++;
+	}
+
+	for (int j = 0; j < i; j++) {
+		if (ary1[j] > ary2[j]) {
+			printf("Yes\n");
+		}
+		else
+		{
+			printf("No\n");
+		}
 	}
 	return 0;
 }
