@@ -1,4 +1,2 @@
 ﻿  Re_기초.c
-C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(329,11): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
-C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(340,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   Re_Fucking_Start.vcxproj -> C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\x64\Debug\Re_Fucking_Start.exe
