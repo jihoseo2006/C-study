@@ -392,11 +392,14 @@ void push(int n) {
 int pop() {
 	if (is_empty() == 1) {
 		printf("Empty error!");
+		return -1;
 	}
 	else {
 		return stack[top--];
 	}
 }
+
+
 
 int main() {
 	push(1);
