@@ -413,52 +413,103 @@
 //}
 
 //구조체 스택 예시 코드
+//#include<stdio.h>
+//#define MAX_STACK_SIZE 100
+//#define MAX_STRING 100
+//
+//struct element {
+//	int student_no;
+//	char name[MAX_STRING];
+//	char address[MAX_STRING];
+//}stack[MAX_STACK_SIZE];
+//int top = -1;
+//
+//int is_full() {
+//	if (top == MAX_STACK_SIZE - 1) {
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//int is_empty() {
+//	if (top < 0) {
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//void push(struct element data) {
+//	if (is_full() == 1) printf("Full error!");
+//	else stack[++top] = data;
+//
+//}
+//struct element pop() {
+//	if (is_empty() == 1) printf("Empty error!");
+//	else return stack[top--];
+//}
+//
+//int main() {
+//	struct element is = { 20220901, "JUNG", "대전" };
+//	struct element os;
+//	push(is);
+//	os = pop();
+//	printf("학번: %d\n", os.student_no);
+//	printf("이름: %s\n", os.name);
+//	printf("주소: %s\n", os.address);
+//	return 0;
+//}
+
+//개선된 스택 프로그램
+//구조체 수택은 머리가 어지려워요..
+
 #include<stdio.h>
 #define MAX_STACK_SIZE 100
-#define MAX_STRING 100
+struct StackType {
+	int data[MAX_STACK_SIZE]; //스택을 구조체 멤버로 넣음으로써 한 프로그램에서 여러 스택 만들 수 있음
+	int top;
+};
 
-struct element {
-	int student_no;
-	char name[MAX_STRING];
-	char address[MAX_STRING];
-}stack[MAX_STACK_SIZE];
-int top = -1;
-
-int is_full() {
-	if (top == MAX_STACK_SIZE - 1) {
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-int is_empty() {
-	if (top < 0) {
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-void push(struct element data) {
-	if (is_full() == 1) printf("Full error!");
-	else stack[++top] = data;
-
-}
-struct element pop() {
-	if (is_empty() == 1) printf("Empty error!");
-	else return stack[top--];
+// 스택 초기화 함수
+void init_stack(struct StackType* s)
+{
+	s->top = -1;
 }
 
-int main() {
-	struct element is = { 20220901, "JUNG", "대전" };
-	struct element os;
-	push(is);
-	os = pop();
-	printf("학번: %d\n", os.student_no);
-	printf("이름: %s\n", os.name);
-	printf("주소: %s\n", os.address);
-	return 0;
+//구조체 StackType의 멤버 top을 활용하여 공백상태 확인
+int is_empty(struct StackType* s)
+{
+	return s->top == -1;
+}
+//구조체 StackType의 멤버 top을 활용하여 포화상태 확인
+int is_full(struct StackType* s)
+{
+	return s->top == MAX_STACK_SIZE - 1;
+}
+// 삽입함수
+void push(struct StackType* s, int item)
+{
+	if (is_full(s)) printf("Push error!");
+	else s->data[++s->top] = item;
+}
+// 삭제함수
+int pop(struct StackType* s)
+{
+	if (is_empty(s)) printf("Pop error!");
+	else return s->data[s->top--];
+}
+int main(void)
+{
+	struct StackType s;  // 스택을 정적으로 생성
+
+	init_stack(&s);   // 함수를 호출할 때 매개변수로 스택의 주소를 전달
+	push(&s, 1);
+	push(&s, 2);
+	push(&s, 3);
+	printf("%d\n", pop(&s));
+	printf("%d\n", pop(&s));
+	printf("%d\n", pop(&s));
 }
