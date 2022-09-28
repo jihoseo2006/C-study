@@ -352,15 +352,80 @@
 
 //ㅇㅇㄱㄴ! 수택택님 한판해요!
 
+//#include<stdio.h>
+//#define MAX_STACK_SIZE 100
+//int stack[MAX_STACK_SIZE];
+//int top = -1;
+//
+////포화상태 확인
+//int is_full() {
+//	if (top == MAX_STACK_SIZE-1)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//
+////공백상태 확인
+//int is_empty() {
+//	if (top < 0) {
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//
+//void push(int n) {
+//	if (is_full() == 1) {
+//		printf("Full error!");
+//	}
+//	else {
+//		stack[++top] = n;
+//	}
+//}
+//
+//int pop() {
+//	if (is_empty() == 1) {
+//		printf("Empty error!");
+//		return -1;
+//	}
+//	else {
+//		return stack[top--];
+//	}
+//}
+//
+//
+//
+//int main() {
+//	push(1);
+//	push(2);
+//	push(3);
+//	printf("%d\n", pop());
+//	printf("%d\n", pop());
+//	printf("%d\n", pop());
+//
+//	return 0;
+//}
+
+//구조체 스택 예시 코드
 #include<stdio.h>
 #define MAX_STACK_SIZE 100
-int stack[MAX_STACK_SIZE];
+#define MAX_STRING 100
+
+struct element {
+	int student_no;
+	char name[MAX_STRING];
+	char address[MAX_STRING];
+}stack[MAX_STACK_SIZE];
 int top = -1;
 
-//포화상태 확인
 int is_full() {
-	if (top == MAX_STACK_SIZE-1)
-	{
+	if (top == MAX_STACK_SIZE - 1) {
 		return 1;
 	}
 	else
@@ -368,8 +433,6 @@ int is_full() {
 		return 0;
 	}
 }
-
-//공백상태 확인
 int is_empty() {
 	if (top < 0) {
 		return 1;
@@ -379,35 +442,23 @@ int is_empty() {
 		return 0;
 	}
 }
+void push(struct element data) {
+	if (is_full() == 1) printf("Full error!");
+	else stack[++top] = data;
 
-void push(int n) {
-	if (is_full() == 1) {
-		printf("Full error!");
-	}
-	else {
-		stack[++top] = n;
-	}
 }
-
-int pop() {
-	if (is_empty() == 1) {
-		printf("Empty error!");
-		return -1;
-	}
-	else {
-		return stack[top--];
-	}
+struct element pop() {
+	if (is_empty() == 1) printf("Empty error!");
+	else return stack[top--];
 }
-
-
 
 int main() {
-	push(1);
-	push(2);
-	push(3);
-	printf("%d\n", pop());
-	printf("%d\n", pop());
-	printf("%d\n", pop());
-
+	struct element is = { 20220901, "JUNG", "대전" };
+	struct element os;
+	push(is);
+	os = pop();
+	printf("학번: %d\n", os.student_no);
+	printf("이름: %s\n", os.name);
+	printf("주소: %s\n", os.address);
 	return 0;
 }
