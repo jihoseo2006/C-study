@@ -352,3 +352,21 @@
 //	}
 //	return 0;
 //}
+
+#include<stdio.h>//10952¹ø
+int main() {
+	int ary1[100] = {0};
+	int ary2[100] = {0};
+	int cnt=0;
+	for (int i = 0; ; i++) {
+		scanf("%d %d", &ary1[i], &ary2[i]);
+		if (ary1[i] == 0 && ary2[i] == 0) break;
+		cnt++;
+	}
+	
+	for (int i = 0; i < cnt; i++) {
+		printf("%d\n", ary1[i] + ary2[i]);
+	}
+	return 0;
+	
+}
