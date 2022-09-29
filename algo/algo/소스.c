@@ -371,11 +371,38 @@
 //	
 //}
 
-#include<stdio.h>//16394번
+//#include<stdio.h>//16394번
+//int main() {
+//	int y = 1946;
+//	int ty;
+//	scanf("%d", &ty);
+//	printf("%d", ty - y);
+//	return 0;
+//}
+
+//#include<stdio.h>//1237번 풀고있음
+//int main() {
+//	printf(" ");
+//	return 0;
+//}
+
+#include<stdio.h>//1978번
 int main() {
-	int y = 1946;
-	int ty;
-	scanf("%d", &ty);
-	printf("%d", ty - y);
+	int n;
+	int num, count = 0;
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &num);
+		for (int j = 2; j <= num; j++) {
+			if (num == j)
+				count++;
+			if (num % j == 0)
+				break;
+		}
+	}
+
+	printf("%d", count);
+
 	return 0;
 }
