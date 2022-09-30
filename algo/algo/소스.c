@@ -420,8 +420,73 @@
 //	return 0;
 //}
 
-#include<stdio.h>//7287번
+//#include<stdio.h>//7287번
+//int main() {
+//	printf("34\njihoseo2006");
+//	return 0;
+//}
+
+#include<stdio.h>//2754번
+
 int main() {
-	printf("34\njihoseo2006");
+	double score[4][3] = { 
+		{4.3,4.0,3.7},//A
+		{3.3,3.0,2.7},//B
+		{2.3,2.0,1.7},//C
+		{1.3,1.0,0.7}//D
+	};
+	char name[2] = { "A0" };
+	scanf("%c", &name[0]);
+	scanf("%c", &name[1]);
+	switch (name[0])
+	{
+	case 'A':
+		if (name[1] == '+') {
+			printf("%.1lf", score[0][0]);
+		}
+		else if (name[1] == '0') {
+			printf("%.1lf", score[0][1]);
+		}
+		else {
+			printf("%.1lf", score[0][2]);
+		}
+		break;
+	case 'B':
+		if (name[1] == '+') {
+			printf("%.1lf", score[1][0]);
+		}
+		else if (name[1] == '0') {
+			printf("%.1lf", score[1][1]);
+		}
+		else {
+			printf("%.1lf", score[1][2]);
+		}
+		break;
+	case 'C':
+		if (name[1] == '+') {
+			printf("%.1lf", score[2][0]);
+		}
+		else if (name[1] == '0') {
+			printf("%.1lf", score[2][1]);
+		}
+		else {
+			printf("%.1lf", score[2][2]);
+		}
+		break;
+	case 'D':
+		if (name[1] == '+') {
+			printf("%.1lf", score[3][0]);
+		}
+		else if (name[1] == '0') {
+			printf("%.1lf", score[3][1]);
+		}
+		else {
+			printf("%.1lf", score[3][2]);
+		}
+		break;
+	default:
+		printf("0.0");//F예외문
+		break;
+	}
 	return 0;
 }
