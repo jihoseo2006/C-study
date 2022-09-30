@@ -407,15 +407,21 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15680¹ø
+//#include<stdio.h>//15680¹ø
+//int main() {
+//	int n;
+//	scanf("%d", &n);
+//	if (n == 0) {
+//		printf("YONSEI");
+//	}
+//	if (n == 1) {
+//		printf("Leading the Way to the Future");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//7287¹ø
 int main() {
-	int n;
-	scanf("%d", &n);
-	if (n == 0) {
-		printf("YONSEI");
-	}
-	if (n == 1) {
-		printf("Leading the Way to the Future");
-	}
+	printf("34\njihoseo2006");
 	return 0;
 }
