@@ -491,11 +491,17 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15964번 부분성공
+//#include<stdio.h>//15964번 부분성공
+//int main() {
+//	int a, b,c=0;
+//	scanf("%d %d", &a, &b);
+//	c = (a + b) * (a - b);
+//	printf("%d", c);
+//	return 0;
+//}
+
+#include<stdio.h>//15962번
 int main() {
-	int a, b,c=0;
-	scanf("%d %d", &a, &b);
-	c = (a + b) * (a - b);
-	printf("%d", c);
+	printf("파이팅!!");
 	return 0;
 }
