@@ -500,8 +500,23 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15962번
+
+//#include<stdio.h>//15962번
+//int main() {
+//	printf("파이팅!!");
+//	return 0;
+//}
+
+
+#include<stdio.h>//15963번
 int main() {
-	printf("파이팅!!");
+	int a, b;
+	scanf("%d %d", &a, &b);
+	if (a == b) {
+		printf("1");
+	}
+	else {
+		printf("0");
+	}
 	return 0;
 }
