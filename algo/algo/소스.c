@@ -507,16 +507,37 @@
 //	return 0;
 //}
 
+//#include<stdio.h>//15963¹ø
+//int main() {
+//	int a, b;
+//	scanf("%d %d", &a, &b);
+//	if (a == b) {
+//		printf("1");
+//	}
+//	else {
+//		printf("0");
+//	}
+//	return 0;
+//}
 
-#include<stdio.h>//15963¹ø
+#include<stdio.h>//25304¹ø
 int main() {
-	int a, b;
-	scanf("%d %d", &a, &b);
-	if (a == b) {
-		printf("1");
+	int allcount;
+	int count;
+	int cost;
+	int costcount;
+	int con = 0;
+	scanf("%d", &allcount);
+	scanf("%d", &count);
+	for (int i = 0; i < count; i++) {
+		scanf("%d %d", &cost, &costcount);
+		con += (cost * costcount);
+	}
+	if (allcount == con) {
+		printf("Yes");
 	}
 	else {
-		printf("0");
+		printf("No");
 	}
 	return 0;
 }
