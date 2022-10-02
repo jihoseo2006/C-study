@@ -520,24 +520,49 @@
 //	return 0;
 //}
 
-#include<stdio.h>//25304¹ø
+//#include<stdio.h>//25304¹ø
+//int main() {
+//	int allcount;
+//	int count;
+//	int cost;
+//	int costcount;
+//	int con = 0;
+//	scanf("%d", &allcount);
+//	scanf("%d", &count);
+//	for (int i = 0; i < count; i++) {
+//		scanf("%d %d", &cost, &costcount);
+//		con += (cost * costcount);
+//	}
+//	if (allcount == con) {
+//		printf("Yes");
+//	}
+//	else {
+//		printf("No");
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//4153¹ø
 int main() {
-	int allcount;
-	int count;
-	int cost;
-	int costcount;
-	int con = 0;
-	scanf("%d", &allcount);
-	scanf("%d", &count);
-	for (int i = 0; i < count; i++) {
-		scanf("%d %d", &cost, &costcount);
-		con += (cost * costcount);
+	int i;
+	int a[100] = { 0 };
+	int b[100] = { 0 };
+	int c[100] = { 0 };
+	for (i = 0; ; i++) {
+		scanf("%d %d %d", &a[i], &b[i], &c[i]);
+		if (a[i] == 0 && b[i] == 0 && c[i] == 0) {
+			break;
+		}
 	}
-	if (allcount == con) {
-		printf("Yes");
+	for (int j = 0; j < i; j++) {
+		int n1 = a[j] * a[j];
+		int n2 = b[j] * b[j];
+		int n3 = c[j] * c[j];
+		if ((n1+n2==n3)||(n1+n3==n2)||(n2+n3==n1)) {
+			printf("right\n");
+		}
+		else {
+			printf("wrong\n");
+		}
 	}
-	else {
-		printf("No");
-	}
-	return 0;
 }
