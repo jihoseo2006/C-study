@@ -542,27 +542,41 @@
 //	return 0;
 //}
 
-#include<stdio.h>//4153¹ø
+//#include<stdio.h>//4153¹ø
+//int main() {
+//	int i;
+//	int a[100] = { 0 };
+//	int b[100] = { 0 };
+//	int c[100] = { 0 };
+//	for (i = 0; ; i++) {
+//		scanf("%d %d %d", &a[i], &b[i], &c[i]);
+//		if (a[i] == 0 && b[i] == 0 && c[i] == 0) {
+//			break;
+//		}
+//	}
+//	for (int j = 0; j < i; j++) {
+//		int n1 = a[j] * a[j];
+//		int n2 = b[j] * b[j];
+//		int n3 = c[j] * c[j];
+//		if ((n1+n2==n3)||(n1+n3==n2)||(n2+n3==n1)) {
+//			printf("right\n");
+//		}
+//		else {
+//			printf("wrong\n");
+//		}
+//	}
+//}
+
+#include<stdio.h>//2420¹ø
 int main() {
-	int i;
-	int a[100] = { 0 };
-	int b[100] = { 0 };
-	int c[100] = { 0 };
-	for (i = 0; ; i++) {
-		scanf("%d %d %d", &a[i], &b[i], &c[i]);
-		if (a[i] == 0 && b[i] == 0 && c[i] == 0) {
-			break;
-		}
+	long long a, b,c = 0;
+	scanf("%lld %lld", &a, &b);
+	if (a > b) {
+		printf("%lld", a - b);
 	}
-	for (int j = 0; j < i; j++) {
-		int n1 = a[j] * a[j];
-		int n2 = b[j] * b[j];
-		int n3 = c[j] * c[j];
-		if ((n1+n2==n3)||(n1+n3==n2)||(n2+n3==n1)) {
-			printf("right\n");
-		}
-		else {
-			printf("wrong\n");
-		}
+	else
+	{
+		printf("%lld", b - a);
 	}
+	return 0;
 }
