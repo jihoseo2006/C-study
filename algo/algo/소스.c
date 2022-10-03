@@ -567,16 +567,22 @@
 //	}
 //}
 
-#include<stdio.h>//2420번
+//#include<stdio.h>//2420번
+//int main() {
+//	long long a, b,c = 0;
+//	scanf("%lld %lld", &a, &b);
+//	if (a > b) {
+//		printf("%lld", a - b);
+//	}
+//	else
+//	{
+//		printf("%lld", b - a);
+//	}
+//	return 0;
+//}
+
+#include<stdio.h>//1237번
 int main() {
-	long long a, b,c = 0;
-	scanf("%lld %lld", &a, &b);
-	if (a > b) {
-		printf("%lld", a - b);
-	}
-	else
-	{
-		printf("%lld", b - a);
-	}
+	printf("문제의 정답");
 	return 0;
 }
