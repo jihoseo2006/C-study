@@ -581,8 +581,14 @@
 //	return 0;
 //}
 
-#include<stdio.h>//1237번
+//#include<stdio.h>//1237번
+//int main() {
+//	printf("문제의 정답");
+//	return 0;
+//}
+
+#include<stdio.h>//11942번
 int main() {
-	printf("문제의 정답");
+	printf("고려대학교");
 	return 0;
 }
