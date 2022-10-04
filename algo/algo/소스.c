@@ -587,8 +587,14 @@
 //	return 0;
 //}
 
-#include<stdio.h>//11942번
+//#include<stdio.h>//11942번
+//int main() {
+//	printf("고려대학교");
+//	return 0;
+//}
+
+#include<stdio.h>//15733번
 int main() {
-	printf("고려대학교");
+	printf("I'm Sexy");
 	return 0;
 }
