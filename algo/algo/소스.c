@@ -593,8 +593,19 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15733¹ø
+//#include<stdio.h>//15733¹ø
+//int main() {
+//	printf("I'm Sexy");
+//	return 0;
+//}
+
+#include<stdio.h>//15633¹ø
+int n, r;
 int main() {
-	printf("I'm Sexy");
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++) {
+		if (n % i == 0) r += i;
+	}
+	printf("%d", r * 5 - 24);
 	return 0;
 }

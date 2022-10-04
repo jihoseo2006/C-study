@@ -466,51 +466,122 @@
 //개선된 스택 프로그램
 //구조체 수택은 머리가 어지려워요..
 
-#include<stdio.h>
-#define max_stack_size 100
-struct stacktype {
-	int data[max_stack_size]; //스택을 구조체 멤버로 넣음으로써 한 프로그램에서 여러 스택 만들 수 있음
-	int top;
-};
+//#include<stdio.h>
+//#define max_stack_size 100
+//struct stacktype {
+//	int data[max_stack_size]; //스택을 구조체 멤버로 넣음으로써 한 프로그램에서 여러 스택 만들 수 있음
+//	int top;
+//};
+//
+//// 스택 초기화 함수
+//void init_stack(struct stacktype* s)
+//{
+//	s->top = -1;
+//}
+//
+////구조체 stacktype의 멤버 top을 활용하여 공백상태 확인
+//int is_empty(struct stacktype* s)
+//{
+//	return s->top == -1;
+//}
+////구조체 stacktype의 멤버 top을 활용하여 포화상태 확인
+//int is_full(struct stacktype* s)
+//{
+//	return s->top == max_stack_size - 1;
+//}
+//// 삽입함수
+//void push(struct stacktype* s, int item)
+//{
+//	if (is_full(s)) printf("push error!");
+//	else s->data[++s->top] = item;
+//}
+//// 삭제함수
+//int pop(struct stacktype* s)
+//{
+//	if (is_empty(s)) printf("pop error!");
+//	else return s->data[s->top--];
+//}
+//int main(void)
+//{
+//	struct stacktype s;  // 스택을 정적으로 생성
+//
+//	init_stack(&s);   // 함수를 호출할 때 매개변수로 스택의 주소를 전달
+//	push(&s, 1);
+//	push(&s, 2);
+//	push(&s, 3);
+//	printf("%d\n", pop(&s));
+//	printf("%d\n", pop(&s));
+//	printf("%d\n", pop(&s));
+//}
 
-// 스택 초기화 함수
-void init_stack(struct stacktype* s)
-{
-	s->top = -1;
+#include<stdio.h>
+#include<string.h>
+#define MAX_STACK_SIZE 100
+
+typedef struct {
+	char stack[MAX_STACK_SIZE];
+	int top;
+}StackType;
+
+void init_stack(StackType* s) {
+	s->top == -1;
 }
 
-//구조체 stacktype의 멤버 top을 활용하여 공백상태 확인
-int is_empty(struct stacktype* s)
-{
+int is_full(StackType* s) {
+	return s->top == MAX_STACK_SIZE - 1;
+}
+
+int is_empty(StackType* s) {
 	return s->top == -1;
 }
-//구조체 stacktype의 멤버 top을 활용하여 포화상태 확인
-int is_full(struct stacktype* s)
-{
-	return s->top == max_stack_size - 1;
-}
-// 삽입함수
-void push(struct stacktype* s, int item)
-{
+
+void push(StackType* s, int data) {
 	if (is_full(s)) printf("push error!");
-	else s->data[++s->top] = item;
-}
-// 삭제함수
-int pop(struct stacktype* s)
-{
-	if (is_empty(s)) printf("pop error!");
-	else return s->data[s->top--];
-}
-int main(void)
-{
-	struct stacktype s;  // 스택을 정적으로 생성
-
-	init_stack(&s);   // 함수를 호출할 때 매개변수로 스택의 주소를 전달
-	push(&s, 1);
-	push(&s, 2);
-	push(&s, 3);
-	printf("%d\n", pop(&s));
-	printf("%d\n", pop(&s));
-	printf("%d\n", pop(&s));
+	else s->stack[++s->top] = data;
 }
 
+int pop(StackType* s) {
+	//삭제
+}
+
+int is_match(char* c) {
+	StackType st;
+	char ch, open;
+	int length = strlen(c);
+	init_stack(&st);
+
+	for (int i = 0; i < length; i++) {
+		ch = c[i];
+		if (ch == '(' || ch == '{' || ch == '[') {
+			push(&st,ch);
+		}
+		else if (ch == ')') {
+			if (pop(&st) != ch) {
+				return 0;
+			}
+		}
+		else if (ch == '}') {
+			if (pop(&st) != ch) {
+				return 0;
+			}
+		}
+		else if (ch == ']') {
+			if (pop(&st) != ch) {
+				return 0;
+			}
+		}
+	}
+	//스택이 비었는지 확인
+
+	return 1; //괄호 검사가 모두 정상적으로 끝나면 1반환 -> 오류 없음
+}
+
+int main() {
+	char* p = "{A[(i+1)]=0;}";
+	if (is_match(p) == 1)
+		printf("%s 괄호 검사 성공!\n", p);
+	else
+		printf("%s 괄호 검사 실패!\n", p);
+
+	return 0;
+}
