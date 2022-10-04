@@ -599,13 +599,22 @@
 //	return 0;
 //}
 
-#include<stdio.h>//15633¹ø
-int n, r;
+//#include<stdio.h>//15633¹ø
+//int n, r;
+//int main() {
+//	scanf("%d", &n);
+//	for (int i = 1; i <= n; i++) {
+//		if (n % i == 0) r += i;
+//	}
+//	printf("%d", r * 5 - 24);
+//	return 0;
+//}
+
+#include<stdio.h>//2475¹ø
 int main() {
-	scanf("%d", &n);
-	for (int i = 1; i <= n; i++) {
-		if (n % i == 0) r += i;
-	}
-	printf("%d", r * 5 - 24);
+	int a, b, c, d, e,f=0;
+	scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+	f = ((a * a) + (b * b) + (c * c) + (d * d) + (e * e)) % 10;
+	printf("%d", f);
 	return 0;
 }
