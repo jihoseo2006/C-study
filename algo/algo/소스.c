@@ -610,11 +610,20 @@
 //	return 0;
 //}
 
-#include<stdio.h>//2475¹ø
+//#include<stdio.h>//2475¹ø
+//int main() {
+//	int a, b, c, d, e,f=0;
+//	scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+//	f = ((a * a) + (b * b) + (c * c) + (d * d) + (e * e)) % 10;
+//	printf("%d", f);
+//	return 0;
+//}
+
+#include<stdio.h>
 int main() {
-	int a, b, c, d, e,f=0;
-	scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
-	f = ((a * a) + (b * b) + (c * c) + (d * d) + (e * e)) % 10;
-	printf("%d", f);
+	int n;
+	scanf("%d", &n);
+	if (n == 1) printf("SciComLove");
+	else if(n == 2) printf("SciComLove\nSciComLove");
 	return 0;
 }
