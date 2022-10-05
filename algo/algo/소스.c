@@ -619,11 +619,22 @@
 //	return 0;
 //}
 
-#include<stdio.h>
+//#include<stdio.h>
+//int main() {
+//	int n;
+//	scanf("%d", &n);
+//	if (n == 1) printf("SciComLove");
+//	else if(n == 2) printf("SciComLove\nSciComLove");
+//	return 0;
+//}
+
+#include<stdio.h>//10872¹ø
 int main() {
-	int n;
+	int n,r=1;
 	scanf("%d", &n);
-	if (n == 1) printf("SciComLove");
-	else if(n == 2) printf("SciComLove\nSciComLove");
+	for (int i = 1; i <= n; i++) {
+		r *= i;
+	}
+	printf("%d", r);
 	return 0;
 }
