@@ -524,7 +524,7 @@ typedef struct {
 }StackType;
 
 void init_stack(StackType* s) {
-	s->top == -1;
+	s->top = -1;
 }
 
 int is_full(StackType* s) {
@@ -541,7 +541,8 @@ void push(StackType* s, int data) {
 }
 
 int pop(StackType* s) {
-	//삭제
+	if (is_empty(s)) printf("empty error!");
+	else return s->stack[s->top--];
 }
 
 int is_match(char* c) {
@@ -556,22 +557,23 @@ int is_match(char* c) {
 			push(&st,ch);
 		}
 		else if (ch == ')') {
-			if (pop(&st) != ch) {
+			if (pop(&st) != '(') {
 				return 0;
 			}
 		}
 		else if (ch == '}') {
-			if (pop(&st) != ch) {
+			if (pop(&st) != '{') {
 				return 0;
 			}
 		}
 		else if (ch == ']') {
-			if (pop(&st) != ch) {
+			if (pop(&st) != '[') {
 				return 0;
 			}
 		}
 	}
 	//스택이 비었는지 확인
+	if (is_empty(&st) == 0) return 0;
 
 	return 1; //괄호 검사가 모두 정상적으로 끝나면 1반환 -> 오류 없음
 }
