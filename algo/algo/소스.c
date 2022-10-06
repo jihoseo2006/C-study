@@ -628,13 +628,14 @@
 //	return 0;
 //}
 
-#include<stdio.h>//10872¹ø
-int main() {
-	int n,r=1;
-	scanf("%d", &n);
-	for (int i = 1; i <= n; i++) {
-		r *= i;
-	}
-	printf("%d", r);
-	return 0;
-}
+//#include<stdio.h>//10872¹ø
+//int main() {
+//	int n,r=1;
+//	scanf("%d", &n);
+//	for (int i = 1; i <= n; i++) {
+//		r *= i;
+//	}
+//	printf("%d", r);
+//	return 0;
+//}
+
