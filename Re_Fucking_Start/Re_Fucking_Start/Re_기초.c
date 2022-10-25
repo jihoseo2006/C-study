@@ -514,76 +514,324 @@
 //	printf("%d\n", pop(&s));
 //}
 
-#include<stdio.h>
-#include<string.h>
-#define MAX_STACK_SIZE 100
+//#include<stdio.h>
+//#include<string.h>
+//#define MAX_STACK_SIZE 100
+//
+//typedef struct {
+//	char stack[MAX_STACK_SIZE];
+//	int top;
+//}StackType;
+//
+//void init_stack(StackType* s) {
+//	s->top = -1;
+//}
+//
+//int is_full(StackType* s) {
+//	return s->top == MAX_STACK_SIZE - 1;
+//}
+//
+//int is_empty(StackType* s) {
+//	return s->top == -1;
+//}
+//
+//void push(StackType* s, int data) {
+//	if (is_full(s)) printf("push error!");
+//	else s->stack[++s->top] = data;
+//}
+//
+//int pop(StackType* s) {
+//	if (is_empty(s)) printf("empty error!");
+//	else return s->stack[s->top--];
+//}
+//
+//int is_match(char* c) {
+//	StackType st;
+//	char ch, open;
+//	int length = strlen(c);
+//	init_stack(&st);
+//
+//	for (int i = 0; i < length; i++) {
+//		ch = c[i];
+//		if (ch == '(' || ch == '{' || ch == '[') {
+//			push(&st,ch);
+//		}
+//		else if (ch == ')') {
+//			if (pop(&st) != '(') {
+//				return 0;
+//			}
+//		}
+//		else if (ch == '}') {
+//			if (pop(&st) != '{') {
+//				return 0;
+//			}
+//		}
+//		else if (ch == ']') {
+//			if (pop(&st) != '[') {
+//				return 0;
+//			}
+//		}
+//	}
+//	//스택이 비었는지 확인
+//	if (is_empty(&st) == 0) return 0;
+//
+//	return 1; //괄호 검사가 모두 정상적으로 끝나면 1반환 -> 오류 없음
+//}
+//
+//int main() {
+//	char* p = "{A[(i+1)]=0;}";
+//	if (is_match(p) == 1)
+//		printf("%s 괄호 검사 성공!\n", p);
+//	else
+//		printf("%s 괄호 검사 실패!\n", p);
+//
+//	return 0;
+//}
 
-typedef struct {
-	char stack[MAX_STACK_SIZE];
-	int top;
-}StackType;
+//#include<stdio.h>
+//#include<string.h>
+//#define MAX_STACK_SIZE 100
+//
+//struct stacks {
+//	char stack[MAX_STACK_SIZE];
+//	int top;
+//};
+//
+////스택과 관련된 함수 모두 작성
+//
+//int is_full(struct stacks* s) {
+//	return s->top == MAX_STACK_SIZE - 1;
+//}
+//
+//int is_empty(struct stacks* s) {
+//	return s->top == -1;
+//}
+//
+//void push(struct stacks* s, int data) {
+//	if (is_full(s)) printf("push error!");
+//	else s->stack[++s->top] = data;
+//}
+//
+//int pop(struct stacks* s) {
+//	if (is_empty(s)) printf("empty error!");
+//	else return s->stack[s->top--];
+//}
+//
+//void init_stack(struct stacks* s) {
+//	s->top = -1;
+//}
+//
+//char peek(struct stacks* s) {
+//	if (is_empty(s)) printf("error");
+//	else return s->stack[s->top];
+//}
+//
+////연산자 우선순위 결정하는 함수
+//int rank(char c) {
+//	if (c == '(' || c == ')')
+//		return 0;
+//	else if (c == '+' || c == '-')
+//		return 1;
+//	else if (c == '*' || c == '/')
+//		return 2;
+//	else return -1;
+//}
+//
+////전위 -> 후위
+//void infix_to_postfix(char* s) {
+//	struct stacks st;
+//		char ch, c;
+//		int length = strlen(s);
+//		init_stack(&st);
+//		for (int i = 0; i < length; i++) {
+//			ch = s[i];
+//			//연산자일때
+//			if (rank(ch) == 1 || 2) {
+//				while (peek(s) >= ch) {
+//					c = pop(s);
+//					printf("%c", c);
+//					push(&st, ch);
+//				}
+//			}
+//			//왼쪽 괄호일때 (
+//			if (rank(ch) == 0) {
+//
+//			}
+//			//오른쪽 괄호일때 )
+//
+//			//나머지(피연산자일때)
+//			if (rank(ch) == -1) {
+//				printf("%c", ch);
+//			}
+//		}
+//
+//	//스택에 남아있는 것들 모두 출력
+//}
+//
+//int main() {
+//	char* s = "(2+3)*4+9";
+//	printf("중위표기수식 %s\n", s);
+//	printf("후위표기수식 ");
+//	infix_to_postfix(s);
+//	return 0;
+//}
 
-void init_stack(StackType* s) {
-	s->top = -1;
-}
+//#include<stdio.h>
+//#include<string.h>
+//#define MAX_SIZE 100
+//
+//struct stacks {
+//	int stack[MAX_SIZE];
+//	int top;
+//};
+//
+//int is_full(struct stacks* s) {
+//	return s->top == MAX_SIZE - 1;
+//}
+//
+//int is_empty(struct stacks* s) {
+//	return s->top == -1;
+//}
+//
+//void push(struct stacks* s, int data) {
+//	if (is_full(s)) printf("push error!");
+//	else s->stack[++s->top] = data;
+//}
+//
+//int pop(struct stacks* s) {
+//	if (is_empty(s)) printf("empty error!");
+//	else return s->stack[s->top--];
+//}
+//
+//void init_stack(struct stacks* s) {
+//	s->top = -1;
+//}
+//
+//int calc_postfix(char exp[]) {
+//	struct stacks st;
+//	int first, second, value;
+//	int len = strlen(exp);
+//	char c;
+//
+//	init_stack(&st);
+//
+//	for (int i = 0; i < len; i++) {
+//		c = exp[i];
+//		//피연산자일때
+//		if (c != '/'||'+'||'*'||'-') {
+//			push(&st,c);
+//		}
+//		//연산자일때
+//		if (c == '/' || '+' || '*' || '-') {
+//			if (c == '+') {
+//				second = pop(&st);
+//				first = pop(&st);
+//				push(&st, first + second);
+//			}
+//			else if (c == '-') {
+//				second = pop(&st);
+//				first = pop(&st);
+//				push(&st, first - second);
+//			}
+//			else if (c == '*') {
+//				second = pop(&st);
+//				first = pop(&st);
+//				push(&st, first * second);
+//			}
+//			else if (c == '/') {
+//				second = pop(&st);
+//				first = pop(&st);
+//				push(&st, first / second);
+//			}
+//			else {
+//				push(&st, c - 48);
+//			}
+//		}
+//	}
+//	return pop(&st);
+//}
+//
+//int main() {
+//	printf("후위표기식은 : 82/3-32*+\n");
+//	printf("결과값은 %d\n", calc_postfix("82/3-32*+"));
+//	return 0;
+//}
 
-int is_full(StackType* s) {
-	return s->top == MAX_STACK_SIZE - 1;
-}
+//#include<stdio.h>
+//#define MAX_QUEUE_SIZE 5
+//
+//struct Queue {
+//	int data[MAX_QUEUE_SIZE];
+//	int front, rear;
+//};
+//
+//void init_queue(struct Queue* q){
+//	q->front = -1;
+//	q->rear = -1;
+//}
+//
+//int is_full(struct Queue* q) {
+//	return q->rear == MAX_QUEUE_SIZE - 1;
+//}
+//
+//int is_empty(struct Queue* q) {
+//	return q->front == q->rear;
+//}
+//
+//void enqueue(struct Queue* q, int item) {
+//	if (is_full(q)) printf("enqueue error!");
+//	else q->data[++q->rear] = item;
+//}
+//
+//int dequeue(struct Queue* q) {
+//	if (is_empty(q)) printf("dequeue error!");
+//	else return q->data[++q->front];
+//}
+//
+//void print_queue(struct Queue* q) { // 출력 형태 만들어주는 함수
+//	for (int i = 0; i < MAX_QUEUE_SIZE; i++) {
+//		if (i <= q->front || i > q->rear) {
+//			printf("   |");
+//		}
+//		else {
+//			printf("%d |", q->data[i]);
+//		}
+//	}
+//	printf("\n");
+//}
+//
+//int main() {
+//	int n;
+//	struct Queue q;
+//	init_queue(&q);
+//
+//	enqueue(&q, 10); print_queue(&q);
+//	enqueue(&q, 20); print_queue(&q);
+//	enqueue(&q, 30); print_queue(&q);
+//	enqueue(&q, 40); print_queue(&q);
+//	enqueue(&q, 50); print_queue(&q);
+//	enqueue(&q, 60); print_queue(&q);
+//	enqueue(&q, 70); print_queue(&q);
+//	enqueue(&q, 80); print_queue(&q);
+//	enqueue(&q, 90); print_queue(&q);
+//
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//	n = dequeue(&q); print_queue(&q);
+//
+//	return 0;
+//}
 
-int is_empty(StackType* s) {
-	return s->top == -1;
-}
+#define  MAX_SIZE 8
+int queue[MAX_SIZE];
+int front, rear;
 
-void push(StackType* s, int data) {
-	if (is_full(s)) printf("push error!");
-	else s->stack[++s->top] = data;
-}
-
-int pop(StackType* s) {
-	if (is_empty(s)) printf("empty error!");
-	else return s->stack[s->top--];
-}
-
-int is_match(char* c) {
-	StackType st;
-	char ch, open;
-	int length = strlen(c);
-	init_stack(&st);
-
-	for (int i = 0; i < length; i++) {
-		ch = c[i];
-		if (ch == '(' || ch == '{' || ch == '[') {
-			push(&st,ch);
-		}
-		else if (ch == ')') {
-			if (pop(&st) != '(') {
-				return 0;
-			}
-		}
-		else if (ch == '}') {
-			if (pop(&st) != '{') {
-				return 0;
-			}
-		}
-		else if (ch == ']') {
-			if (pop(&st) != '[') {
-				return 0;
-			}
-		}
-	}
-	//스택이 비었는지 확인
-	if (is_empty(&st) == 0) return 0;
-
-	return 1; //괄호 검사가 모두 정상적으로 끝나면 1반환 -> 오류 없음
-}
-
-int main() {
-	char* p = "{A[(i+1)]=0;}";
-	if (is_match(p) == 1)
-		printf("%s 괄호 검사 성공!\n", p);
-	else
-		printf("%s 괄호 검사 실패!\n", p);
-
-	return 0;
+bool isEmpty() {
+	rertunn 
 }

@@ -1,3 +1,6 @@
 ﻿  소스.c
-C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(646,9): warning C4477: 'printf' : 서식 문자열 '%lf'에 'double' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(665,20): warning C4033: 'qes'은(는) 값을 반환해야 합니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(687,9): warning C4033: 'ans'은(는) 값을 반환해야 합니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(684): warning C4716: 'qes': 값을 반환해야 합니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\algo\소스.c(712): warning C4716: 'ans': 값을 반환해야 합니다.
   algo.vcxproj -> C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\algo\x64\Debug\algo.exe
