@@ -639,3 +639,10 @@
 //	return 0;
 //}
 
+#include <stdio.h>//25311¹ø
+int main() {
+	int a;
+	scanf("%d", &a);
+	printf("A");
+	return 0;
+}
