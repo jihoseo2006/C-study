@@ -892,96 +892,182 @@
 //	return 0;
 //}
 
+//#include<stdio.h>
+//#define MAX_QUEUE_SIZE 5
+//
+////원형큐에서 사용한 init_queue, is_full, is_empty함수 안보고 작성하기
+//
+//struct Queue {
+//	int data[MAX_QUEUE_SIZE];
+//	int front, rear;
+//};
+//void init_queue(struct Queue* q) {
+//	q->front = q->rear = 0;
+//}
+//
+//int is_empty(struct Queue* q) {
+//	return (q->front == q->rear);
+//}
+//
+//int is_full(struct Queue* q) {
+//	return (q->front == ((q->rear + 1) % MAX_QUEUE_SIZE));
+//}
+//
+//void print_deque(struct Queue* q) {
+//	int i = q->front;
+//	if (!is_empty(q)) {
+//		while (i != q->rear) {
+//			i = (i + 1) % MAX_QUEUE_SIZE;
+//			printf("%d |  ", q->data[i]);
+//		}
+//		printf("\n");
+//	}
+//}
+//
+////원형큐 삽입과 동일 enqueue
+//void add_rear(struct Queue* q, int item) {
+//	if (is_full(q))	printf("포화상태\n");
+//	else {
+//		q->rear = (q->rear + 1) % MAX_QUEUE_SIZE;
+//		q->data[q->rear] = item;
+//	}
+//}
+//
+////원형큐의 삭제 함수와 동일 dequeue
+//int delete_front(struct Queue* q) {
+//	if (is_empty(q)) {
+//		printf("공백상태\n");
+//		return 0;
+//	}
+//	else {
+//		//삭제
+//		q->front = (q->front + 1) % MAX_QUEUE_SIZE;
+//		return q->data[q->front];
+//	}
+//}
+//
+////front에 삽입 -> 즉 반대로 이동 
+//void add_front(struct Queue* q, int item) {
+//	//삽입 시 포화 상태 확인 (이전과 동일)
+//	if (is_full(q)) {
+//		printf("포화상태");
+//	}
+//	else {
+//		q->data[q->front] = item;
+//		q->front = (q->front - 1+MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE;
+//	}
+//}
+//
+////rear에서 삭제 -> 반대로 이동
+//int delete_rear(struct Queue* q) {
+//	int val; // 반환하고 삭제할 데이터 저장할 변수
+//	if (is_empty(q)) {
+//		printf("공백상태");
+//		return 0;
+//	}
+//	else {
+//		val = q->data[q->rear];
+//		q->rear = (q->rear - 1 + MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE;
+//		return val;
+//	}
+//}
+//
+//int main() {
+//	struct Queue q;
+//	init_queue(&q);
+//	add_rear(&q, 10);	print_deque(&q);
+//	add_front(&q, 20);	print_deque(&q);
+//	add_rear(&q, 30);	print_deque(&q);
+//
+//	delete_front(&q);	print_deque(&q);
+//	delete_rear(&q);	print_deque(&q);
+//
+//	return 0;
+//}
 
 #include<stdio.h>
-#define MAX_QUEUE_SIZE 5
+#define MAX_LIST_SIZE 5
 
-//원형큐에서 사용한 init_queue, is_full, is_empty함수 안보고 작성하기
-
-struct Queue {
-	int data[MAX_QUEUE_SIZE];
-	int front, rear;
+struct ArrayListType {
+	int array[MAX_LIST_SIZE]; //리스트로 사용할 배열 정의
+	int size;  // 현재 리스트에 저장된 항목들의 개수
 };
-void init_queue(struct Queue* q) {
-	q->front = q->rear = 0;
+
+void init_list(struct ArrayListType* L) {
+	//무엇을 초기화할까요?
+	L->size = 0;
 }
 
-int is_empty(struct Queue* q) {
-	return (q->front == q->rear);
+int is_full(struct ArrayListType* L) {
+	return L->size == MAX_LIST_SIZE;
 }
 
-int is_full(struct Queue* q) {
-	return (q->front == ((q->rear + 1) % MAX_QUEUE_SIZE));
+int is_empty(struct ArrayListType* L) {
+	//공백상태 조건은?
+	return L->size == 0;
 }
 
-void print_deque(struct Queue* q) {
-	int i = q->front;
-	if (!is_empty(q)) {
-		while (i != q->rear) {
-			i = (i + 1) % MAX_QUEUE_SIZE;
-			printf("%d |  ", q->data[i]);
-		}
-		printf("\n");
+void print_list(struct ArrayListType* L) {
+	for (int i = 0; i < L->size; i++) {
+		printf("%d -> ", L->array[i]);
 	}
+	printf("\n");
 }
 
-//원형큐 삽입과 동일 enqueue
-void add_rear(struct Queue* q, int item) {
-	if (is_full(q))	printf("포화상태\n");
+void insert_last(struct ArrayListType* L, int item) {
+	if (is_full(L)) {
+		printf("포화상태\n");
+	}
 	else {
-		q->rear = (q->rear + 1) % MAX_QUEUE_SIZE;
-		q->data[q->rear] = item;
+		//배열 맨 뒤에 항목 삽입
+		L->array[L->size++] = item;
 	}
 }
 
-//원형큐의 삭제 함수와 동일 dequeue
-int delete_front(struct Queue* q) {
-	if (is_empty(q)) {
+void insert(struct ArrayListType* L, int pos, int item) {
+	if (is_full(L)) printf("포화상태\n"); //경우의 수1
+	else if (!is_full(L)&&pos <= L->size) { // pos의 위치가 어디에 있어야 삽입할 수 있을까요?
+		for (int i = L->size  ; i > pos; i--) {
+			//한칸씩 뒤로 밀기
+			L->array[i] = L->array[i - 1];
+		}
+		//원하는 자리에 item 삽입
+		L->array[pos] = item;
+		//리스트 배열에 들어간 항목 한개 증가
+		L->size++;
+	}
+	else printf("위치오류\n"); // 경우의 수3
+}
+
+int delete(struct ArrayListType* L, int pos) {
+	int item;
+	if (is_empty(L)) { //경우의 수1
 		printf("공백상태\n");
 		return 0;
 	}
-	else {
-		//삭제
-		q->front = (q->front + 1) % MAX_QUEUE_SIZE;
-		return q->data[q->front];
+	else if (pos <0 || pos >= MAX_LIST_SIZE || pos >= L->size) { //pos가 어떤 범위에 있을 때 오류가 날까요? (경우의 수2)
+		printf("위치오류\n");
 	}
-}
-
-//front에 삽입 -> 즉 반대로 이동 
-void add_front(struct Queue* q, int item) {
-	//삽입 시 포화 상태 확인 (이전과 동일)
-	if (is_full(q)) {
-		printf("포화상태");
+	item = L->array[pos]; // 경우의 수3
+	//한칸씩 앞으로 당기기
+	for (int i = pos; i <= L->size - 1; i++) {
+		L->array[i] = L->array[i + 1];
 	}
-	else {
-		q->data[q->front] = item;
-		q->front = (q->front - 1+MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE;
-	}
-}
-
-//rear에서 삭제 -> 반대로 이동
-int delete_rear(struct Queue* q) {
-	int val; // 반환하고 삭제할 데이터 저장할 변수
-	if (is_empty(q)) {
-		printf("공백상태");
-		return 0;
-	}
-	else {
-		val = q->data[q->rear];
-		q->rear = (q->rear - 1 + MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE;
-		return val;
-	}
+	
+	//리스트 배열에 들어간 항목 한개 감소
+	L->size--;
+	return item;
 }
 
 int main() {
-	struct Queue q;
-	init_queue(&q);
-	add_rear(&q, 10);	print_deque(&q);
-	add_front(&q, 20);	print_deque(&q);
-	add_rear(&q, 30);	print_deque(&q);
+	struct ArrayListType list;
 
-	delete_front(&q);	print_deque(&q);
-	delete_rear(&q);	print_deque(&q);
+	init_list(&list);
+	insert(&list, 0, 10);	print_list(&list);
+	insert(&list, 0, 20);	print_list(&list);
+	insert(&list, 0, 30);	print_list(&list);
+	insert_last(&list, 40);	print_list(&list);
+	delete(&list, 0);	print_list(&list);
 
 	return 0;
 }
