@@ -985,89 +985,114 @@
 //	return 0;
 //}
 
-#include<stdio.h>
-#define MAX_LIST_SIZE 5
+//#include<stdio.h>
+//#define MAX_LIST_SIZE 5
+//
+//struct ArrayListType {
+//	int array[MAX_LIST_SIZE]; //리스트로 사용할 배열 정의
+//	int size;  // 현재 리스트에 저장된 항목들의 개수
+//};
+//
+//void init_list(struct ArrayListType* L) {
+//	//무엇을 초기화할까요?
+//	L->size = 0;
+//}
+//
+//int is_full(struct ArrayListType* L) {
+//	return L->size == MAX_LIST_SIZE;
+//}
+//
+//int is_empty(struct ArrayListType* L) {
+//	//공백상태 조건은?
+//	return L->size == 0;
+//}
+//
+//void print_list(struct ArrayListType* L) {
+//	for (int i = 0; i < L->size; i++) {
+//		printf("%d -> ", L->array[i]);
+//	}
+//	printf("\n");
+//}
+//
+//void insert_last(struct ArrayListType* L, int item) {
+//	if (is_full(L)) {
+//		printf("포화상태\n");
+//	}
+//	else {
+//		//배열 맨 뒤에 항목 삽입
+//		L->array[L->size++] = item;
+//	}
+//}
+//
+//void insert(struct ArrayListType* L, int pos, int item) {
+//	if (is_full(L)) printf("포화상태\n"); //경우의 수1
+//	else if (!is_full(L)&&pos <= L->size) { // pos의 위치가 어디에 있어야 삽입할 수 있을까요?
+//		for (int i = L->size  ; i > pos; i--) {
+//			//한칸씩 뒤로 밀기
+//			L->array[i] = L->array[i - 1];
+//		}
+//		//원하는 자리에 item 삽입
+//		L->array[pos] = item;
+//		//리스트 배열에 들어간 항목 한개 증가
+//		L->size++;
+//	}
+//	else printf("위치오류\n"); // 경우의 수3
+//}
+//
+//int delete(struct ArrayListType* L, int pos) {
+//	int item;
+//	if (is_empty(L)) { //경우의 수1
+//		printf("공백상태\n");
+//		return 0;
+//	}
+//	else if (pos <0 || pos >= MAX_LIST_SIZE || pos >= L->size) { //pos가 어떤 범위에 있을 때 오류가 날까요? (경우의 수2)
+//		printf("위치오류\n");
+//	}
+////	item = L->array[pos]; // 경우의 수3
+//	//한칸씩 앞으로 당기기
+//	for (int i = pos; i <= L->size - 1; i++) {
+////		L->array[i] = L->array[i + 1];
+//	}
+//	
+//	//리스트 배열에 들어간 항목 한개 감소
+//	L->size--;
+//	return item;
+//}
+//
+//int main() {
+//	struct ArrayListType list;
+//
+//	init_list(&list);
+//	insert(&list, 0, 10);	print_list(&list);
+//	insert(&list, 0, 20);	print_list(&list);
+//	insert(&list, 0, 30);	print_list(&list);
+//	insert_last(&list, 40);	print_list(&list);
+//	delete(&list, 0);	print_list(&list);
+//
+//	return 0;
+//}
 
-struct ArrayListType {
-	int array[MAX_LIST_SIZE]; //리스트로 사용할 배열 정의
-	int size;  // 현재 리스트에 저장된 항목들의 개수
+#include<stdio.h>
+#include<stdlib.h>
+
+//노드구조체
+//메인함수 만들기
+//헤도포인터 만들기
+//헤드에 데이터필드에 10 저장,link 에 NULL 저장
+//p노드 만들기
+//p의 data필드에 20저장, link에 NULL 저장
+
+struct Node {
+	int data;
+	struct Node* link;
+
 };
 
-void init_list(struct ArrayListType* L) {
-	//무엇을 초기화할까요?
-	L->size = 0;
-}
-
-int is_full(struct ArrayListType* L) {
-	return L->size == MAX_LIST_SIZE;
-}
-
-int is_empty(struct ArrayListType* L) {
-	//공백상태 조건은?
-	return L->size == 0;
-}
-
-void print_list(struct ArrayListType* L) {
-	for (int i = 0; i < L->size; i++) {
-		printf("%d -> ", L->array[i]);
-	}
-	printf("\n");
-}
-
-void insert_last(struct ArrayListType* L, int item) {
-	if (is_full(L)) {
-		printf("포화상태\n");
-	}
-	else {
-		//배열 맨 뒤에 항목 삽입
-		L->array[L->size++] = item;
-	}
-}
-
-void insert(struct ArrayListType* L, int pos, int item) {
-	if (is_full(L)) printf("포화상태\n"); //경우의 수1
-	else if (!is_full(L)&&pos <= L->size) { // pos의 위치가 어디에 있어야 삽입할 수 있을까요?
-		for (int i = L->size  ; i > pos; i--) {
-			//한칸씩 뒤로 밀기
-			L->array[i] = L->array[i - 1];
-		}
-		//원하는 자리에 item 삽입
-		L->array[pos] = item;
-		//리스트 배열에 들어간 항목 한개 증가
-		L->size++;
-	}
-	else printf("위치오류\n"); // 경우의 수3
-}
-
-int delete(struct ArrayListType* L, int pos) {
-	int item;
-	if (is_empty(L)) { //경우의 수1
-		printf("공백상태\n");
-		return 0;
-	}
-	else if (pos <0 || pos >= MAX_LIST_SIZE || pos >= L->size) { //pos가 어떤 범위에 있을 때 오류가 날까요? (경우의 수2)
-		printf("위치오류\n");
-	}
-	item = L->array[pos]; // 경우의 수3
-	//한칸씩 앞으로 당기기
-	for (int i = pos; i <= L->size - 1; i++) {
-		L->array[i] = L->array[i + 1];
-	}
-	
-	//리스트 배열에 들어간 항목 한개 감소
-	L->size--;
-	return item;
-}
-
 int main() {
-	struct ArrayListType list;
-
-	init_list(&list);
-	insert(&list, 0, 10);	print_list(&list);
-	insert(&list, 0, 20);	print_list(&list);
-	insert(&list, 0, 30);	print_list(&list);
-	insert_last(&list, 40);	print_list(&list);
-	delete(&list, 0);	print_list(&list);
-
-	return 0;
+	struct Node* head = (struct Node*)malloc(sizeof(struct Node));
+	head->data = 10;
+	head->link = NULL;
+	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+	p->data = 20;
+	p->link = NULL;
 }
