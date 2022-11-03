@@ -1072,27 +1072,62 @@
 //	return 0;
 //}
 
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+////노드구조체
+////메인함수 만들기
+////헤도포인터 만들기
+////헤드에 데이터필드에 10 저장,link 에 NULL 저장
+////p노드 만들기
+////p의 data필드에 20저장, link에 NULL 저장
+//
+//struct Node {
+//	int data;
+//	struct Node* link;
+//
+//};
+//
+//struct Node* insert_first() {
+//
+//}
+//
+//int main() {
+//	struct Node* head = (struct Node*)malloc(sizeof(struct Node));
+//	head->data = 10;
+//	head->link = NULL;
+//	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+//	p->data = 20;
+//	p->link = NULL;
+//}
+
 #include<stdio.h>
 #include<stdlib.h>
 
-//노드구조체
-//메인함수 만들기
-//헤도포인터 만들기
-//헤드에 데이터필드에 10 저장,link 에 NULL 저장
-//p노드 만들기
-//p의 data필드에 20저장, link에 NULL 저장
-
-struct Node {
+struct Node
+{
 	int data;
 	struct Node* link;
-
 };
 
-int main() {
-	struct Node* head = (struct Node*)malloc(sizeof(struct Node));
-	head->data = 10;
-	head->link = NULL;
+struct Node* head;
+
+struct Node* insert_first(struct Node* head, int value) {
 	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
-	p->data = 20;
-	p->link = NULL;
+	p->data = value;
+	p->link = head;
+	head = p;
+}
+
+struct Node* insert(struct Node* pre, int value) {
+	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+	p->data = value;
+	p->link = pre->link;
+	pre->link = p;
+}
+
+int main() {
+	head = NULL;
+	insert_first(head, 10);
+
 }

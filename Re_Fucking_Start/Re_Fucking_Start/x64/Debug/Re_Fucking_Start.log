@@ -1,2 +1,4 @@
 ﻿  Re_기초.c
-  Re_Fucking_Start.vcxproj -> C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\x64\Debug\Re_Fucking_Start.exe
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(1124,5): error C2081: 'i': 정식 매개 변수 목록에 있는 이름이 잘못되었습니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(1124,12): error C2085: 'main': 정식 매개 변수 목록에 없습니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(1124,12): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
