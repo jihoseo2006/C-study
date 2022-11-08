@@ -1101,33 +1101,100 @@
 //	p->link = NULL;
 //}
 
-#include<stdio.h>
-#include<stdlib.h>
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//struct Node
+//{
+//	int data;
+//	struct Node* link;
+//};
+//
+//struct Node* head;
+//
+//struct Node* insert_first(struct Node* head, int value) {
+//	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+//	p->data = value;
+//	p->link = head;
+//	head = p;
+//}
+//
+//struct Node* insert(struct Node* pre, int value) {
+//	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+//	p->data = value;
+//	p->link = pre->link;
+//	pre->link = p;
+//}
+//
+//int main() {
+//	head = NULL;
+//	insert_first(head, 10);
+//	
+//}
 
-struct Node
-{
-	int data;
-	struct Node* link;
-};
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//struct Listnode {
+//	int data;
+//	struct Listnode* link;
+//};
+//
+//struct Listnode* insert_first(struct Listnode* head, int value) {
+//	struct Listnode* p = (struct Listnode*)malloc(sizeof(struct Listnode));
+//	p->data = value;
+//	p->link = head;
+//	head = p;
+//	return head;
+//}
+//
+//struct Listnode* insert(struct Listnode* head, struct Listnode* pre, int value) {
+//	struct Listnode* p = (struct Listnode*)malloc(sizeof(struct Listnode));
+//	p->data = value;
+//	p->link = pre->link;
+//	pre->link = p;
+//	return head;
+//}
+//
+//struct Listnode* delete_first(struct Listnode* head) {
+//	struct Listnode* removed;
+//	if (head == NULL) return NULL;
+//	removed = head;
+//	head = head->link;
+//	free(removed);
+//	return head;
+//}
+//
+//struct Listnode* delete(struct Listnode* head, struct Listnode* pre) {
+//	struct Listnode* removed;
+//
+//	removed = pre->link;
+//	pre->link = removed->link;
+//	free(removed);
+//	return head;
+//}
+//
+//void print_list(struct Listnode* head) {
+//	struct Listnode* p = head;
+//	//출력 함수 작성
+//	while (p) {
+//		printf("%d -> ", p->data);
+//		p = p->link;
+//	}
+//	printf("NULL\n");
+//}
+//
+//int main() {
+//	struct Listnode* head = NULL;
+//	for (int i = 0; i < 5; i++) {
+//		head = insert_first(head, i);//함수 호출(맨앞에 넣는 함수)
+//		print_list(head);//출력함수 호출
+//	}
+//	for (int i = 0; i < 5; i++) {
+//		head = delete_first(head);//맨앞 노드 삭제하는 함수 호출
+//		print_list(head);	//출력 함수 호출
+//	}
+//}
 
-struct Node* head;
 
-struct Node* insert_first(struct Node* head, int value) {
-	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
-	p->data = value;
-	p->link = head;
-	head = p;
-}
 
-struct Node* insert(struct Node* pre, int value) {
-	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
-	p->data = value;
-	p->link = pre->link;
-	pre->link = p;
-}
-
-int main() {
-	head = NULL;
-	insert_first(head, 10);
-
-}
