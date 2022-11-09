@@ -1196,5 +1196,79 @@
 //	}
 //}
 
-
-
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//struct Node {
+//	int data;
+//	struct Node* link;
+//};
+//
+////head 전역 변수로 작성하기
+//struct Node* head = NULL;
+//
+//void insert_first(int value) {
+//	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+//	p->data = value;
+//	if (head == NULL) {
+//		head = p;
+//		p->link = head;
+//	}
+//	else {
+//		p->link = head->link;
+//		head->link = p;
+//	}
+//	return head;
+//}
+//
+//void insert_last(int value) {
+//	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+//	p->data = value;
+//	if (head == NULL) {
+//		head = p;
+//		p->link = head;
+//	}
+//	else {
+//		p->link = head->link;
+//		head->link = p;
+//		head = p;
+//	}
+//	return head;
+//}
+//
+//void delete() {
+//	struct Node* removed;
+//	removed = head->link;
+//	head->link = removed->link;
+//	free(removed);
+//}
+//
+//void print_list() {
+//	struct Node* p;
+//
+//	if (head == NULL) return;
+//	p = head->link;
+//	do {
+//		printf("%d -> ", p->data);
+//		p = p->link;
+//	} while (p != head);
+//
+//	printf("%d -> \n", p->data);
+//}
+//
+//int main() {
+//	insert_last(10);
+//	insert_last(20);
+//	insert_first(30);
+//	insert_last(40);
+//
+//	print_list();
+//
+//	delete();
+//	print_list();
+//
+//	delete();
+//	print_list();
+//
+//	return 0;
+//}

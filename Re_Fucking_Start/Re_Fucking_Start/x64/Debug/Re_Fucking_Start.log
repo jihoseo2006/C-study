@@ -1,2 +1,4 @@
 ﻿  Re_기초.c
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(1221,13): warning C4098: 'insert_first': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\Re_Fucking_Start\Re_기초.c(1236,13): warning C4098: 'insert_last': 'void' 함수에서 값을 반환하고 있습니다.
   Re_Fucking_Start.vcxproj -> C:\Users\DSM2022\OneDrive\바탕 화면\문서\GitHub\C-study\Re_Fucking_Start\x64\Debug\Re_Fucking_Start.exe
