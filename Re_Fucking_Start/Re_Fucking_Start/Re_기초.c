@@ -1272,3 +1272,74 @@
 //
 //	return 0;
 //}
+
+#include<stdio.h>
+#include<stdlib.h>
+
+//1. 노드 정의
+struct Node {
+	int data;
+	struct Node* llink;
+	struct Node* rlink;
+};
+
+struct Node* head;
+
+void init() {
+	//2. 연결 리스트(head) 초기화하기
+	head->llink = head;
+	head->rlink = head;
+}
+
+void insert(struct Node* before, int value) {
+	//3. 삽입 함수 작성
+	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+	newnode->data = value;
+
+	newnode->rlink = before->rlink;
+	newnode->llink = before;
+
+	before->llink->llink = newnode;
+	before->rlink = newnode;
+	
+}
+
+void delete(struct Node* removed) {
+	//4. 삭제 함수 작성
+	if (removed == head) return;
+	else {
+		removed->llink->rlink = removed->rlink;
+		removed->rlink->llink = removed->llink;
+	}
+	free(removed);
+}
+
+void print_list() {
+	//5. 출력 함수 작성
+	struct Node* p = head->rlink;
+	for (; p != head; p = p->rlink)
+		printf("<- %d -> ", p->data);
+	printf("\n");
+}
+
+int main() {
+	head = (struct Node*)malloc(sizeof(struct Node));
+	init();
+	printf("삽입 단계\n");
+	for (int i = 0; i < 5; i++) {
+		//6. 삽입 함수 호출
+		insert(head, i);
+		//7. 출력 함수 호출
+		print_list();
+	}
+
+	printf("\n삭제 단계\n");
+	for (int i = 0; i < 5; i++) {
+		//8. 삭제 함수 호출
+		delete(head->rlink);
+		//9. 출력 함수 호출
+		print_list();
+	}
+
+	return 0;
+}
