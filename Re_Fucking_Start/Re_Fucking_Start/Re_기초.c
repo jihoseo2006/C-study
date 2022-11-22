@@ -1273,73 +1273,562 @@
 //	return 0;
 //}
 
-#include<stdio.h>
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+////1. 노드 정의
+//struct Node {
+//	int data;
+//	struct Node* llink;
+//	struct Node* rlink;
+//};
+//
+//struct Node* head;
+//
+//void init() {
+//	//2. 연결 리스트(head) 초기화하기
+//	head->llink = head;
+//	head->rlink = head;
+//}
+//
+//void insert(struct Node* before, int value) {
+//	//3. 삽입 함수 작성
+//	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+//	newnode->data = value;
+//
+//	newnode->rlink = before->rlink;
+//	newnode->llink = before;
+//
+//	before->llink->llink = newnode;
+//	before->rlink = newnode;
+//	
+//}
+//
+//void delete(struct Node* removed) {
+//	//4. 삭제 함수 작성
+//	if (removed == head) return;
+//	else {
+//		removed->llink->rlink = removed->rlink;
+//		removed->rlink->llink = removed->llink;
+//	}
+//	free(removed);
+//}
+//
+//void print_list() {
+//	//5. 출력 함수 작성
+//	struct Node* p = head->rlink;
+//	for (; p != head; p = p->rlink)
+//		printf("<- %d -> ", p->data);
+//	printf("\n");
+//}
+//
+//int main() {
+//	head = (struct Node*)malloc(sizeof(struct Node));
+//	init();
+//	printf("삽입 단계\n");
+//	for (int i = 0; i < 5; i++) {
+//		//6. 삽입 함수 호출
+//		insert(head, i);
+//		//7. 출력 함수 호출
+//		print_list();
+//	}
+//
+//	printf("\n삭제 단계\n");
+//	for (int i = 0; i < 5; i++) {
+//		//8. 삭제 함수 호출
+//		delete(head->rlink);
+//		//9. 출력 함수 호출
+//		print_list();
+//	}
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//#define nullptr 0
+//
+//typedef struct node
+//{
+//	char szName[32];
+//	struct node* link;
+//}NODE;
+//
+//NODE* g_pHead = nullptr;
+//NODE* g_pTail = nullptr;
+//
+//void PrintList()
+//{
+//	NODE* pNode = g_pHead;
+//	while (pNode != nullptr)
+//	{
+//		printf("[%p] %s [%p]\n",
+//			pNode, pNode->szName, pNode->link);
+//		pNode = pNode->link;
+//	}
+//}
+//
+//void InsertNode(char* strName) {
+//	NODE* newNode = (NODE*)malloc(sizeof(NODE));
+//	strcpy(newNode->szName, strName);
+//	newNode->link = nullptr;
+//	if (g_pHead == nullptr) {
+//		g_pHead = newNode;
+//	}
+//	else {
+//		g_pTail->link = newNode;
+//	}
+//	g_pTail = newNode;
+//}
+//
+//int main()
+//{
+//	InsertNode("홍길동");
+//	InsertNode("가나다");
+//	InsertNode("나가라");
+//
+//	PrintList();
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <malloc.h>
+//
+//typedef int element;
+//
+//typedef struct {
+//	element data;
+//	struct StackNode* link;
+//} StackNode;
+//
+//typedef struct {
+//	StackNode* top;
+//} LinkedStackType;
+//
+//// 초기화 함수
+//void init(LinkedStackType* s)
+//{
+//	s->top = NULL;
+//}
+//// 공백 검출
+//int is_empty(LinkedStackType* s) {
+//	return (s->top == NULL);
+//}
+//// 포화 검출
+//int is_full(LinkedStackType* s) {
+//	return 0;
+//}
+//// 삽입
+//void push(LinkedStackType* s, element item) {
+//	StackNode* temp =
+//		(StackNode*)malloc(sizeof(StackNode));
+//	temp->data = item;
+//	temp->link = s->top;
+//	s->top = temp;
+//}
+//// 삭제
+//element pop(LinkedStackType* s)
+//{
+//	if (is_empty(s)) {
+//		printf(stderr, "스택이 비어있음\n");
+//		exit(1);
+//	}
+//	else {
+//		StackNode* temp = s->top;
+//		element data = temp->data;
+//		s->top = s->top->link;
+//		free(temp);
+//		return data;
+//	}
+//}
+//// 출력
+//void print_stack(LinkedStackType* s) {
+//	for (StackNode* p = s->top; p != NULL; p = p->link)
+//		printf("%d->", p->data);
+//	printf("NULL \n");
+//}
+//int main(void)
+//{
+//	LinkedStackType s;
+//	init(&s);
+//	push(&s, 1); print_stack(&s);
+//	push(&s, 2); print_stack(&s);
+//	push(&s, 3); print_stack(&s);
+//	pop(&s); print_stack(&s);
+//	pop(&s); print_stack(&s);
+//	pop(&s); print_stack(&s);
+//	return 0;
+//}
+
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//struct TreeNode {
+//	int data;
+//	struct TreeNode* left, * right;
+//};
+//
+//struct TreeNode n1 = { 4, NULL, NULL };
+//struct TreeNode n2 = { 5, NULL, NULL };
+//struct TreeNode n3 = { 6, NULL, NULL };
+//struct TreeNode n4 = { 2, &n1, &n2 };
+//struct TreeNode n5 = { 3, NULL, &n3 };
+//struct TreeNode n6 = { 1, &n4, &n5 };
+//struct TreeNode* root = &n6;
+//
+//	void inorder(struct TreeNode* root) {
+//	if (root != NULL) {
+//		//중위 순회
+//		inorder(root->left);
+//		printf("%d", root->data);
+//		inorder(root->right);
+//	}
+//}
+//
+//void preorder(struct TreeNode* root) {
+//	if (root != NULL) {
+//		printf("%d", root->data);
+//		preorder(root->left);
+//		preorder(root->right);
+//	}
+//}
+//
+//void postorder(struct TreeNode* root) {
+//	if (root != NULL) {
+//		//후위 순회
+//		postorder(root->left);
+//		postorder(root->right);
+//		printf("%d", root->data);
+//	}
+//}
+//
+//int main() {
+//	printf("중위 순회 = ");
+//	inorder(root);
+//	printf("\n");
+//
+//	printf("전위 순회 = ");
+//	preorder(root);
+//	printf("\n");
+//
+//	printf("후위 순회 = ");
+//	postorder(root);
+//	printf("\n");
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//#define nullptr 0
+//
+//typedef struct node
+//{
+//	char szName[32];
+//	struct node* link;
+//}NODE;
+//
+//NODE* g_pHead = nullptr;
+//NODE* g_pTail = nullptr;
+//
+//void PrintList()
+//{
+//	NODE* pNode = g_pHead;
+//	while (pNode != nullptr)
+//	{
+//		printf("[%p] %s [%p]\n",
+//			pNode, pNode->szName, pNode->link);
+//		pNode = pNode->link;
+//	}
+//}
+//
+//void InsertNode(char* strName)
+//{
+//	NODE* newNode = (NODE*)malloc(sizeof(NODE));
+//
+//	strcpy(newNode->szName, strName);
+//	newNode->link = nullptr;
+//
+//	NODE* pre = nullptr;
+//	NODE* cur = g_pHead;
+//
+//	while (cur != nullptr)
+//	{
+//		if (strcmp(cur->szName, newNode->szName) > 0)
+//			break;
+//
+//		pre = cur;
+//		cur = cur->link;
+//	}
+//
+//	if (pre == nullptr) // g_pHead에 삽입
+//	{
+//		newNode->link = g_pHead;
+//		g_pHead = newNode;
+//		if (g_pTail == nullptr)  // 새로운 노드가 처음 노드일 때
+//		{
+//			g_pTail = newNode;
+//		}
+//	}
+//	else if (pre == g_pTail)  // g_pTail에 삽입
+//	{
+//		g_pTail->link = newNode;
+//		g_pTail = newNode;
+//	}
+//	else                      // 리스트 중간에 삽입
+//	{
+//		newNode->link = pre->link;
+//		pre->link = newNode;
+//	}
+//}
+//
+//void DeleteNode(char* str)
+//{
+//	NODE* pNode = g_pHead;
+//
+//	if (pNode == nullptr)
+//	{
+//		printf(" Empty List!!\n");
+//		return;
+//	}
+//
+//	NODE* pre = nullptr;
+//	while (pNode != nullptr)
+//	{
+//		if (strcmp(pNode->szName, str) == 0)
+//			break;
+//
+//		pre = pNode;
+//		pNode = pNode->link;
+//	}
+//
+//	if (pNode == nullptr)
+//	{
+//		printf(" Not Found!!\n");
+//		return;
+//	}
+//
+//	if (pre == nullptr) // 첫노드 삭제
+//	{
+//		g_pHead = pNode->link;
+//	}
+//	else
+//	{
+//		pre->link = pNode->link;
+//
+//		if (pNode == g_pTail)
+//			g_pTail = pre;
+//	}
+//	free(pNode);
+//}
+//
+//void InverseList()
+//{
+//	NODE* p = nullptr;
+//	NODE* q = g_pHead;
+//	NODE* r = nullptr;
+//
+//	g_pTail = q;
+//	while (q != nullptr)
+//	{
+//		r = q->link;
+//
+//		q->link = p;
+//
+//		p = q;
+//		q = r;
+//	}
+//	g_pHead = p;
+//}
+//
+//int PrintUI()
+//{
+//	int n;
+//
+//	printf("[1]Add [2]Search [3]Print [4]Remove [0]Exit\n : ");
+//	scanf("%d", &n);
+//	return n;
+//}
+//
+//int main()
+//{
+//	char a[10]={0};
+//	while (PrintUI != 0)
+//	{
+//		PrintUI();
+//		if (PrintUI() == 1) {
+//			scanf("%s", a);
+//			InsertNode(a);
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//#include<stdio.h>//재귀함수 c언어 코드
+//#include<stdlib.h>
+//
+//struct Treenode {
+//	int data;
+//	struct Treenode* left, * right;
+//};
+//
+//struct Treenode n1 = { 4, NULL, NULL };
+//struct Treenode n2 = { 5, NULL, NULL };
+//struct Treenode n3 = { 6, NULL, NULL };
+//struct Treenode n4 = { 2, &n1, &n2 };
+//struct Treenode n5 = { 3, NULL, &n3 };
+//struct Treenode n6 = { 1, &n4, &n5 };
+//struct Treenode* root = &n6;
+//
+//struct Treenode* search(struct Treenode* node, int key) {
+//	if (node == NULL) printf("탐색 실패!");
+//	if (key == node->data) printf("탐색 성공!");
+//	else if (key < node->data)
+//		return search(node->left, key);
+//	else
+//		return search(node->right, key);
+//}
+
+//#include<stdio.h>
+//#include<stdlib.h>
+//struct Treenode {
+//	int data;
+//	struct Treenode* left, * right;
+//};
+//
+//struct Treenode* search(struct Treenode* node, int key) {
+//	if (node == NULL) return NULL;
+//	if (key == node->data) return node;
+//	else if (key < node->data)
+//		return (node->left, key);
+//		else
+//			return (node->right, key);
+//}
+
+//struct Treenode {
+//	int data;
+//	struct Treenode* left, * right;
+//};
+//
+//struct Treenode* new_node(int key) {
+//	struct Treenode* new = (struct Treenode*)malloc(sizeof(struct Treenode));
+//	//new노드에 key값 대입
+////new의 left와 right를 NULL로
+//	return new;
+//}
+//
+//struct Treenode* insert(struct Treenode* node, int key) {
+//	if (node == NULL) return new_node(key);
+//
+//	if (node->data > key)
+//		node->left = insert(node->left, key);
+//	else if (node->data < key)
+//		node->right = insert(node->right, key);
+//
+//		return node;
+//}
+
+#include<stdio.h>//이진 탐색 트리 코드
 #include<stdlib.h>
 
-//1. 노드 정의
-struct Node {
-	int data;
-	struct Node* llink;
-	struct Node* rlink;
+struct Treenode {
+	int key;
+	struct Treenode* left;
+	struct Treenode* right;
 };
 
-struct Node* head;
+struct Treenode* root = NULL;
 
-void init() {
-	//2. 연결 리스트(head) 초기화하기
-	head->llink = head;
-	head->rlink = head;
+//반환형이 있는 이유? 재귀함수 하면서 계속 node가 바뀌면서 이동해야 하기 때문에
+struct Treenode* search(struct Treenode* node, int key) {
+	if (node == NULL) return NULL;
+	if (node->key > key)
+		return search(node->left, key);
+	else if (node->key < key)
+		return search(node->right, key);
+	else
+		return node;
 }
 
-void insert(struct Node* before, int value) {
-	//3. 삽입 함수 작성
-	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
-	newnode->data = value;
-
-	newnode->rlink = before->rlink;
-	newnode->llink = before;
-
-	before->llink->llink = newnode;
-	before->rlink = newnode;
-	
+struct Treenode* newnode(int key) {
+	struct Treenode* new = (struct Treenode*)malloc(sizeof(struct Treenode));
+	new->key = key;
+	new->left = NULL;
+	new->right = NULL;
+	return new;
 }
 
-void delete(struct Node* removed) {
-	//4. 삭제 함수 작성
-	if (removed == head) return;
-	else {
-		removed->llink->rlink = removed->rlink;
-		removed->rlink->llink = removed->llink;
+struct Treenode* insert(struct Treenode* node, int key) {
+	if (node == NULL) return newnode(key);
+	if (node->key > key)
+		node->left = insert(node->left, key);
+	else if (node->key < key)
+		node->right = insert(node->right, key);
+
+	return node;
+}
+
+struct Treenode* min_value(struct Treenode* node) {
+	struct Treenode* current = node;
+	while (node->left != NULL) {
+		current = current->left;
 	}
-	free(removed);
+
+	return current;
 }
 
-void print_list() {
-	//5. 출력 함수 작성
-	struct Node* p = head->rlink;
-	for (; p != head; p = p->rlink)
-		printf("<- %d -> ", p->data);
-	printf("\n");
+struct Treenode* delete(struct Treenode* node, int key) {
+	if (node == NULL) return node;
+	if (node->key > key)
+		node->left = delete(node->left, key);
+	else if (node->key < key)
+		node->right = delete(node->right, key);
+	else {
+		if (node->left == NULL) {
+			struct Treenode* temp = node->right;
+			free(node);
+			return temp;
+		}
+		else if (node->right == NULL) {
+			struct Treenode* temp = node->left;
+			free(node);
+			return temp;
+		}
+		struct Treenode* temp = min_value(node->right);
+		node->key = temp->key;
+		node->right = delete(node->right, temp->key);
+	}
+	return node;
+}
+
+void inorder(struct Treenode* root) {
+	if (root) {
+		inorder(root->left);
+		printf("[%d] ", root->key);
+		inorder(root->right);
+	}
 }
 
 int main() {
-	head = (struct Node*)malloc(sizeof(struct Node));
-	init();
-	printf("삽입 단계\n");
-	for (int i = 0; i < 5; i++) {
-		//6. 삽입 함수 호출
-		insert(head, i);
-		//7. 출력 함수 호출
-		print_list();
-	}
+	root = insert(root, 30);          root = insert(root, 20);
+	root = insert(root, 10);         	root = insert(root, 40);
+	root = insert(root, 50);   	root = insert(root, 60);
 
-	printf("\n삭제 단계\n");
-	for (int i = 0; i < 5; i++) {
-		//8. 삭제 함수 호출
-		delete(head->rlink);
-		//9. 출력 함수 호출
-		print_list();
-	}
+	inorder(root);
+	printf("\n\n");
+
+	if (search(root, 30) != NULL)         printf("30찾음!\n");
+	else            printf("30없음!\n");
+
+	printf("\n");
+	delete(root, 20);
+	inorder(root);
+	printf("\n");
 
 	return 0;
 }
+
