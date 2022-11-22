@@ -1778,7 +1778,7 @@ struct Treenode* min_value(struct Treenode* node) {
 		current = current->left;
 	}
 
-	return current;
+	return node;
 }
 
 struct Treenode* delete(struct Treenode* node, int key) {
